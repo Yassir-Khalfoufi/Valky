@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 2 - FlexBox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .box {
+            background-color: white;
+            border: 2px solid #4a5da8;
+            padding: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .element-1 {
+            height: 80px;
+        }
+
+        .element-2 {
+            flex: 1;
+            height: 150px;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 2;
+        }
+
+        .element-3, .element-4 {
+            height: 50px;
+            flex: 1;
+        }
+
+        .element-5 {
+            flex: 1;
+        }
+
+        .element-6 {
+            flex: 2;
+            height: 80px;
+        }
+
+        .element-7 {
+            flex: 1;
+            height: 80px;
+        }
+
+        .element-8 {
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box element-1">Element 1</div>
+        
+        <div class="row">
+            <div class="box element-2">Element 2</div>
+            <div class="column">
+                <div class="row">
+                    <div class="box element-3">Element 3</div>
+                    <div class="box element-4">Element 4</div>
+                </div>
+                <div class="box element-5">Element 5</div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="box element-6">Element 6</div>
+            <div class="box element-7">Element 7</div>
+        </div>
+        
+        <div class="box element-8">Element 8</div>
+    </div>
+</body>
+</html>
