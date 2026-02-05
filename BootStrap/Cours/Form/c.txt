@@ -1,0 +1,48 @@
+form-label for labels
+text area form-control   lg
+form-check  li jameahom
+form-check label form-check-input   from switch fli jameahom
+from selec f select option sm lg
+div form-text text wast form
+span w input  nafslblasa katjmaehum f div smuti group-label
+tag from calss="was-validated"
+valid feedback kaytbdel blkhder fash ki3mar 
+
+components
+	
+nav class navbar
+ul class navbar-nav navbar-expand(returns it horizontal)
+li class nav-item nav-link
+menu deroulant
+div class="dropdown" > button class="btn btn-primary dropdown-toggle" (attribut)data-bs-toggle="dropdown"> ul class="dropdwon-menu" < li class="dropdown-item"
+
+pagintion
+
+div col < yl class="pagination" < li class="page-item" class="active"(colors the page u're in) < a class="page-link"
+
+breadcrumb
+
+ul cls="breadcrumb" < li="breadcrumb-item"
+
+les badges
+
+div class="col-6" < les badges < span class="badge bg-danger"
+
+les alertes
+
+div class="alert alert-dangerl" < <strong> Success : </strong> first char in Uppercase
+
+alert-lien
+
+div class=.. alert-dismissable < button class-btn-close data-bs-dismiss strong < a class="alert-link"
+
+progresse bar
+
+div class=progress" < class ="progress-bar w 0-25-50-75-100" 70% 
+
+les cartes
+
+div class- card
+	< class= carb-header < h1 cls= card-title < img card-img-top < p card-text
+	< class= card-body
+	< class= card-footer < a card-link
