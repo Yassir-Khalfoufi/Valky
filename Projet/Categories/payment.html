@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment - Premium Products</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔒 Secure Payment</h1>
+            <p>Your information is safe and encrypted</p>
+        </div>
+
+        <div class="payment-container">
+            <div class="payment-form">
+                <h2>Payment Information</h2>
+                
+                <div class="security-badge">
+                    <span class="lock-icon">🔒</span>
+                    <span>SSL Encrypted - Your data is secure</span>
+                </div>
+
+                <div class="payment-methods">
+                    <div class="payment-method active">
+                        <div class="method-icon">💳</div>
+                        <div class="method-text">Credit Card</div>
+                    </div>
+                    <div class="payment-method">
+                        <div class="method-icon">🏦</div>
+                        <div class="method-text">Debit Card</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cardname">Cardholder Name</label>
+                    <input type="text" id="cardname" placeholder="John Smith" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cardnumber">Card Number</label>
+                    <input type="text" id="cardnumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                </div>
+
+                <div class="card-row">
+                    <div class="form-group">
+                        <label for="expiry">Expiration Date</label>
+                        <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" maxlength="4" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="your@email.com" required>
+                </div>
+
+                <h3 class="billing-title">Billing Address</h3>
+
+                <div class="form-group">
+                    <label for="address">Street Address</label>
+                    <input type="text" id="address" placeholder="123 Main Street" required>
+                </div>
+
+                <div class="card-row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" placeholder="New York" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">ZIP Code</label>
+                        <input type="text" id="zip" placeholder="10001" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country" required>
+                        <option value="">Select Country</option>
+                        <option value="us">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="ca">Canada</option>
+                        <option value="au">Australia</option>
+                        <option value="de">Germany</option>
+                        <option value="fr">France</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">Complete Payment</button>
+
+                <div class="back-link">
+                    <a href="index.html">← Back to Products</a>
+                </div>
+            </div>
+
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                
+                <div class="order-items">
+                    <div class="order-item">
+                        <span class="item-name">Premium Package</span>
+                        <span class="item-price">$29.99</span>
+                    </div>
+                    <div class="order-item">
+                        <span class="item-name">Subtotal</span>
+                        <span class="item-price">$29.99</span>
+                    </div>
+                    <div class="order-item">
+                        <span class="item-name">Tax (10%)</span>
+                        <span class="item-price">$3.00</span>
+                    </div>
+                </div>
+
+                <div class="total">
+                    <span>Total</span>
+                    <span class="amount">$32.99</span>
+                </div>
+
+                <div class="benefits">
+                    <h3>What You Get:</h3>
+                    <ul>
+                        <li>✓ Unlimited downloads</li>
+                        <li>✓ Priority email support</li>
+                        <li>✓ Access to premium templates</li>
+                        <li>✓ Monthly updates</li>
+                        <li>✓ 30-day money-back guarantee</li>
+                    </ul>
+                </div>
+
+                <div class="trust-badges">
+                    <div class="badge">🔒 Secure Checkout</div>
+                    <div class="badge">✓ Money Back Guarantee</div>
+                    <div class="badge">⚡ Instant Access</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

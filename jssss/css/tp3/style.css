@@ -1,0 +1,16 @@
+.article{
+    padding-left: 20px;
+    font-size: 14px;
+}
+div+p{
+    background-color: yellow;
+}
+
+div>p{
+    border: 5px;
+    border-style: solid;
+    border-color: black;
+}
+li>p{
+    color: green;
+}

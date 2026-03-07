@@ -1,0 +1,11 @@
+.box{
+    border: 3px solid blue;
+    width: 200px;
+    height: 150px;
+}
+.all{
+    display: flex;
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-bottom: 1000px;
+}

@@ -1,0 +1,22 @@
+ .article{
+position: relative;
+ width: 300px;
+ background-color: #C0C0C0;
+ height: 300px;
+}
+.details{
+position: absolute;
+ left: 80px;
+ top: 100px;
+ border: 2px dotted rgba(0,0,0,0.3);
+ background-color: #4477FF;
+    }
+.fix {
+ background-color: #3355FF;
+ width: 80px;
+ height: 30px;
+ position: fixed;
+ right:0;
+ bottom: 0;
+ color:white;
+}

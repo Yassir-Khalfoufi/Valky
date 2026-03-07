@@ -1,0 +1,24 @@
+.container{
+    border: 2px solid blue;                 
+    text-align: center;
+    border-radius: 10px;
+}
+.element{
+        padding: 10px;
+        margin: 10px;
+}
+.type1{
+    border: 2px solid red;
+    padding: 10px;
+    margin: 10px;
+}
+.type2{
+    border: 2px dashed green;
+    padding: 10px;
+    margin: 10px;
+}
+.type3{
+    border: 2px dotted orange;
+    padding: 10px;
+    margin: 10px;
+}

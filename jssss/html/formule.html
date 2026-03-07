@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formule</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <fieldset>
+           
+             <h1>Authentification</h1>
+             <label for="username"></label>
+             <br>
+             <input type="text" name="username" id="username" placeholder="Username">
+            <br>
+             <label for="password"> </label>
+             <br>
+             <input type="password" name="password" id="password" placeholder="Password">
+             <br>
+             <br>
+             <input type="reset" value="Réinitialiser">
+             <input type="submit" value="Valider">
+
+         </fieldset>
+         <br>
+         <fieldset>
+            <legend>Vos coordonnées</legend>
+            <table width="100%">
+                <tr>
+                    <td>
+                        <label for="name">Nom:</label>
+                    </td>
+                   
+                    <td>
+                        <input type="text" name="name" id="name"placeholder="votre nom">
+                    </td>
+                
+                    
+                </tr>
+                <tr>
+                    <td><label for="prenom">Prenom :</label></td>
+                    <td><input type="text" name="prenom" id="prenom"placeholder="votre prénom"></td>
+
+                </tr>
+                <tr>
+                    <td><label for="date">Date de naissance :</label></td>
+                    <td><input type="date" name="date" id="date"></td>
+                </tr>
+                <tr>
+                    <td><label for="mail">Mail :</label></td>
+                    <td><input type="email" name="mail" id="mail" placeholder="votre mail"></td>
+                </tr>
+                <tr>
+                    <td><label for="site">Votre site :</label></td>
+                    <td><input type="url" name="site" id="site" pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?"
+                    required>
+</td>
+                </tr>
+                <tr>
+                    <td><label for="code">Code :</label></td>
+                    <td><input type="number" name="code" id="code"></td>
+                </tr>
+                <tr>
+                    <td><label for="genre">Genre: </label></td>
+                    <td><input type="radio" name="genre" id="genre">Homme
+                        <br>
+                        <input type="radio" name="genre" id="genre">Femme
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="pays">Pays :</label></td>
+                    <td> <select> <option value="Maroc">Maroc</option>
+                        <option value="france">France</option>
+                        <option value="spain">Spain</option>
+                        <option value="mali">Mali</option>
+                    
+                    </select> 
+                </td>
+                </tr>
+            </table>
+         </fieldset>
+         <br>
+         <fieldset>
+            <legend>Vos gouts</legend>
+            <input type="checkbox" name="gout1" id="gout1">Tarte aux fraises à la crème d'amandes <br>
+            <input type="checkbox" name="gout2" id="gout2">Tarte aux prunes <br>
+            <input type="checkbox" name="gout2" id="gout2">Tarte rustique aux mirabelles de Lorraine,noisettes et meil
+            <br>
+            <textarea placeholder="Décrivez vos gouts en details"></textarea>
+         </fieldset>
+         <br>
+         <fieldset>
+            <legend>Envoyez nous votre photo</legend>
+            <input type="file" name="filesend" id="filesend"> <br> <br>
+            <input type="reset" value="Effacer">
+            <input type="submit" value="Envoyer">
+         </fieldset>
+    </form>
+</body>
+</html>

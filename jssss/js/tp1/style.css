@@ -1,0 +1,25 @@
+#layout{
+    background-color: black;
+    width: 500px;
+    padding: 5px;
+    text-align: center;
+
+}
+#layout h2 {
+    text-align: center;
+
+}
+.first {
+    text-align: left;
+}
+.second{
+    text-align: right;
+}
+button{
+    background-color: blue; 
+
+    
+}
+h2, button,p{
+    color: white;
+}

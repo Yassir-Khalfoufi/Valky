@@ -1,0 +1,27 @@
+li {
+    display: inline-block; 
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar{
+    background-color: yellow;
+    margin: 150px;
+}
+
+.dropdown{
+    position: relative;
+}
+.dropdown-content {
+    position: absolute;
+    display: none;
+}
+.dropdown:hover .dropdown-content {
+    display: block; 
+    width: 150%;
+    background-color: yellow;
+}

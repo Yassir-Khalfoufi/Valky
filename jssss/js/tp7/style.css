@@ -1,0 +1,38 @@
+div{
+    border: 1px solid rgba(0, 0, 0, 0);
+    text-align: center;
+    color: #fff;
+}
+.box{
+    float: left;
+    width: 50px;
+    margin: 5px;
+    background-color: #3498db;
+    height: 40px;
+}
+.conteneur2{
+    margin-top: 250px;
+}
+.block2{
+    /* float: left; */
+    float: right;
+    background:#3498db;
+    height: 40px;
+    margin-bottom: 5px;
+}
+.block3{
+    float: right;
+    background: #d35400;
+    height: 40px;
+    margin-bottom: 5px;
+    clear: right;
+    
+}
+.block4{
+    /* clear: both; */
+    background: #1abc9c;
+    height: 40px;
+    float: right;
+    clear: right;
+}
+

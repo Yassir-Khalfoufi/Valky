@@ -1,0 +1,58 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 1. Changez la couleur du titre au-dessus de 1300px en "yellowgreen" */
+
+@media (min-width: 1300px) {
+  h1 {
+    color: yellowgreen;
+  }
+}
+
+
+/* 2. Changez la couleur du titre en "crimson" lorsque la taille d'écran se situe entre 500 et 1000px */
+@media (min-width: 500px) and (max-width: 1000px) {
+  h1 {
+    color: crimson;
+  }
+}
+
+
+
+
+/* 3. Passez la couleur du body en "royalblue" quand sa largeur est égale à 499px */
+@media (width: 499px) {
+  body {
+    background-color: royalblue;
+  }
+}
+
+
+
+
+/* 4. Changez la couleur du body en "lightgreen" lorsque on est en présence d'une écran, ou dans une orientation "portrait" ou en présence d'une largeur supérieur à 500px */
+@media screen and (orientation: portrait), (min-width: 501px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+
+
+
+
+/* 5. Changez la couleur du titre en "turquoise" quand nous sommes en mode "grossier", c'est à dire qu'on est en présence d'un appareil mobile / tablette et qu'on navigue "au doigt". */
+@media (pointer: coarse) {
+  h1 {
+    color: turquoise;
+  }
+}
+
