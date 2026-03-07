@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+<ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="produits.php">Produits</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="feedback.html">Feedback</a></li>
+</ul>
+</nav>
+<center>
+<h2>Laissez un avis</h2>
+
+<form action="feedback.php" method="POST">
+    <input type="text" name="nom" placeholder="Votre nom (optionnel)"><br><br>
+
+    <select name="note">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select><br><br>
+
+    <textarea name="avis" placeholder="Votre avis"></textarea><br><br>
+
+    <button type="submit">Envoyer</button>
+</form>
+</center>
+</body>
+</html>
