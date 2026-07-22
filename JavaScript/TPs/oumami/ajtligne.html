@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau DOM sans insert</title>
+</head>
+<body>
+
+<button onclick="ajouterLigne()">Ajouter ligne</button>
+<button onclick="ajouterColonne()">Ajouter colonne</button>
+
+<br><br>
+
+<table id="monTableau" border="1">
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+    </tr>
+
+    <tr>
+        <td>Ali</td>
+        <td>Ahmed</td>
+    </tr>
+</table>
+
+<script>
+function ajouterLigne() {
+    let table = document.getElementById("monTableau");
+
+    let ligne = document.createElement("tr");
+
+    let nombreColonnes = table.rows[0].cells.length;
+//document.write(nombreColonnes);
+    for (let i = 0; i < nombreColonnes; i++) {
+        let cellule = document.createElement("td");
+        cellule.innerText = "Nouvelle donnée";
+        ligne.appendChild(cellule);
+    }
+
+    table.appendChild(ligne);
+}
+function ajouterColonne()
+{
+    let table = document.getElementById("monTableau");
+
+    let ligne = document.createElement("td");
+
+    let nombreColonnes = table.rows[0].cells.length;
+//document.write(nombreColonnes);
+    for (let i = 0; i < nombreColonnes; i++) {
+        let cellule = document.createElement("td");
+        cellule.innerText = "Nouvelle donnée";
+        ligne.appendChild(cellule);
+    }
+
+    table.appendChild(ligne);
+}
+
+</script>
+
+</body>
+</html>

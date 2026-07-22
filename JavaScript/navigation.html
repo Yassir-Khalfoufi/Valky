@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<div id="parent">
+<h1 id="Id1">Un titre</h1> \n
+<p>Un paragraphe</p>\n
+<a href="#">Un lien</a>\n
+</div>
+<script>
+
+    
+let elt = document.getElementById("parent");
+let premElt = elt.firstElementChild;
+console.log(premElt); // text node
+console.log(premElt.nodeName); // #text
+
+let element = document.getElementById("parent");
+let premElt2 = element.lastElementChild.nodeName;
+console.log(premElt2); // h1
+
+let lmnt = document.getElementById("parent");
+for (let i = 0; i < lmnt.childNodes.length; i++)
+{
+    console.log(element.childNodes[i]);
+}
+for (let i = 0; i < lmnt.children.length; i++)
+{
+console.log(lmnt.children[i].nodeName + " - " + lmnt.children[i].textContent);
+}
+let mnt= document.getElementById("Id1")
+let next = mnt.nextSibling;
+console.log("elemenet frere suivant - " + next.nodeName);
+console.log(next);
+</script>
+</body>
+</html>

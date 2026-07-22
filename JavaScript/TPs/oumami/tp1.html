@@ -1,0 +1,10 @@
+<input type="number" id="num1" value="-7">
+<button onclick="calcAbsolute()">Valeur absolue</button>
+<p id="res1"></p>
+
+<script>
+function calcAbsolute() {
+  let n = parseFloat(document.getElementById("num1").value);
+  document.getElementById("res1").innerText = "Valeur absolue: " + Math.abs(n);
+}
+</script>

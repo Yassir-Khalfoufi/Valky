@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Création d'un string JSON
+        var jsonData = '{"nom":"Saidi", "prenom":"Ali"}';
+        document.write(typeof(jsonData)+'<br>'); //string
+        //Convertir JSON vers Javascript
+        var jsObject = JSON.parse(jsonData);
+        document.write(typeof(jsObject)+'<br>');//object
+        document.write(jsObject+'<br>'); //[object object]
+        document.write(jsObject.nom + ""+jsObject.prenom+'<br>'); //Saidi Ali
+    </script>
+
+    <script>
+        //Création d'un objet Javascript
+        var jsObject = {nom:"Saidi", prenom:"ali"};
+        document.write(typeof(jsObject)+'<br>');//Object
+        //Convertir javascript vers JSON
+        var jsonString = JSON.stringify(jsObject);
+        document.write(typeof(jsonString)+'<br>');//string
+        document.write(jsonString);//{"nom":"Saidi","prenom":"ali"}
+        //remarquer la présence des "" dans les clés
+    </script>
+</body>
+</html>

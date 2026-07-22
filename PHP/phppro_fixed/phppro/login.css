@@ -1,0 +1,167 @@
+.logoo{
+height: 65px;
+width: 70px;
+margin: 7px;
+border-radius: 50%;
+padding: 6px;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 8%;
+  height: 50px;
+  box-shadow: 0 0 10px 0 rgb(96, 36, 36);
+}
+header .logo {
+  color:      #51351f;
+  font-size: 15px;
+  font-weight: bold;
+}
+header .logo span {
+  color: #000;
+}
+.menu {
+  
+  display: flex;
+}
+.menu li {
+  list-style: none;
+  margin: 0 15px;
+}
+.menu li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #000;
+  font-weight: bold;
+
+}
+.menu li a:hover {
+  text-decoration: underline;
+  color: rgb(96, 36, 36);
+  text-shadow: 0px 0px 5px rgb(96, 36, 36);
+}
+
+ .submenu {
+        display: none; 
+        position: absolute;
+        box-shadow: 0px 2px 5px #51351f;
+        background-color: #8c5d38;
+        padding: 5px 0;
+        list-style: none;
+    }
+    
+    .submenu li {
+        padding: 5px 10px;
+        font-size: 10px;
+       
+    }
+     .submenu li a {
+        text-decoration: none;
+    
+    }
+    
+    .dropdown:hover .submenu {
+        display: block; 
+    }
+
+ .icon{
+        margin: 20px;
+        font-size: 25px;
+
+    }
+    .icon a{
+        text-decoration: none;
+        color: #51351f;
+    }
+    .icon :hover
+    {
+      font-size: 30px;
+    }
+
+body{
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+.home{
+    display: flex;
+    justify-content: space-around;
+}
+.login-menu{
+    background-color: #20150b;
+    color: white;
+    width: 500px;
+    height: 700px;
+    
+}
+.login-menu h2{
+    font-size: 50px;
+    font-weight: 450;
+    text-align: center;
+}
+.login-menu h2 span{
+    font-size: 15px;
+    font-weight: 450; 
+    line-height: 0.5;
+}
+.login-menu h2 span a{
+    color: white;
+}
+.data{
+    margin-top: 100px;
+}
+.data input{
+    height: 35px;
+    width: 300px;
+    border-radius: 5px;
+    border: 0px solid;
+    margin-bottom: 15px;
+    margin-left: 80px;
+}
+.data label{
+    text-align: left;
+    margin-left: 80px;
+}
+.passwordforget{
+    margin-left: 80px;
+}
+.passwordforget label{
+    margin-right: 19px;
+}
+.passwordforget a{
+    color: white;
+}
+.login-background{
+    margin-top: 50px;
+}
+.passwordforget button{
+    height: 44px;
+    width: 320px;
+    margin-top: 60px;
+    border-radius: 5px;
+    border: 0px solid ;
+    color: white;
+    background-color: #97561c;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 15px;
+}
+.passwordforget button:hover{
+    background-color: #ac5a11;
+}
+.mini-footer{
+  background:#51351f; 
+  color:#f3efe9;    
+  text-align:center;
+  padding:15px 0;
+  font-family:"Georgia", serif;
+  font-size:15px;
+  letter-spacing:1px;
+}

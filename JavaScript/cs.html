@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
+</head>
+<style>
+    body{
+        align-items: center;
+        justify-content: center;
+   
+        display: flex;
+    }
+    button{
+
+    }
+</style>
+<body>
+
+<div style="background-color: red;
+        color: white; width: 200px;
+        height: 200px;" id="div">
+    <button class="btn" id="delet">
+        <span class="material-symbols-outlined">
+        close
+        </span>
+    </button>
+    <p>Clicker pour delete the text: </p>
+</div>
+
+</body>
+
+
+<script>
+    let div = document.getElementById("div");
+   document.getElementById("delet").addEventListener('click',hehexd );
+
+
+   function hehexd(){
+    div.style.display= 'none';
+  }
+</script>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Sliding Puzzle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+            margin-top: 50px;
+        }
+        
+        .game-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .stats {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #333;
+        }
+
+        #game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+            background-color: #bbada0;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .tile {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.1s ease-in-out;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tile:hover {
+            transform: scale(0.95);
+        }
+
+        .tile-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .empty-tile {
+            cursor: default;
+            background-color: #cdc1b4;
+        }
+
+        .empty-tile:hover {
+            transform: none;
+        }
+
+        .empty-tile .tile-number {
+            display: none;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #28a745;
+            min-height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-info">
+        <h1>Puzzle réalisé par KHALFOUFI :</h1>
+        <div class="stats">Mouvements : <span id="move-counter">0</span></div>
+    </div>
+
+    <div id="game-board"></div>
+
+    <button onclick="initGame()">Répéter le jeu</button>
+    <div id="message"></div>
+
+    <script>
+        let boardState = [];
+        let moves = 0;
+        let isSolved = false;
+
+        function initGame() {
+            moves = 0;
+            isSolved = false;
+            document.getElementById('move-counter').innerText = moves;
+            document.getElementById('message').innerText = "";
+            boardState = generateSolvableBoard();
+            renderBoard();
+        }
+
+        function generateSolvableBoard() {
+            let arr = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+            
+            for (let i = arr.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                let temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+
+            let inversions = 0;
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = i + 1; j < arr.length; j++) {
+                    if (arr[i] !== 0 && arr[j] !== 0) {
+                        if (arr[i] > arr[j]) {
+                            inversions++;
+                        }
+                    }
+                }
+            }
+
+            if (inversions % 2 !== 0) {
+                if (arr[0] !== 0 && arr[1] !== 0) {
+                    let temp = arr[0];
+                    arr[0] = arr[1];
+                    arr[1] = temp;
+                } else {
+                    let temp = arr[8];
+                    arr[8] = arr[7];
+                    arr[7] = temp;
+                }
+            }
+            
+            return arr;
+        }
+
+        function renderBoard() {
+            const board = document.getElementById('game-board');
+            board.innerHTML = ''; 
+
+            for (let i = 0; i < boardState.length; i++) {
+                let num = boardState[i];
+                
+                const tileDiv = document.createElement('div');
+                tileDiv.className = 'tile';
+
+                const numberDiv = document.createElement('div');
+                numberDiv.className = 'tile-number';
+                
+                if (num !== 0) {
+                    numberDiv.innerText = num;
+                } else {
+                    numberDiv.innerText = "";
+                }
+
+                tileDiv.appendChild(numberDiv);
+                
+                if (num === 0) {
+                    tileDiv.className = 'tile empty-tile';
+                } else {
+                    tileDiv.onclick = function() {
+                        moveTile(i);
+                    };
+                }
+                
+                board.appendChild(tileDiv);
+            }
+        }
+
+        function moveTile(index) {
+            if (isSolved === true) {
+                return; 
+            }
+
+            let emptyIndex = -1;
+            for (let i = 0; i < boardState.length; i++) {
+                if (boardState[i] === 0) {
+                    emptyIndex = i;
+                    break;
+                }
+            }
+            
+            let tileRow = Math.floor(index / 3);
+            let tileCol = index % 3;
+            let emptyRow = Math.floor(emptyIndex / 3);
+            let emptyCol = emptyIndex % 3;
+
+            let isAdjacent = false;
+            
+            if (Math.abs(tileRow - emptyRow) === 1 && tileCol === emptyCol) {
+                isAdjacent = true;
+            } else if (Math.abs(tileCol - emptyCol) === 1 && tileRow === emptyRow) {
+                isAdjacent = true;
+            }
+
+            if (isAdjacent === true) {
+                boardState[emptyIndex] = boardState[index];
+                boardState[index] = 0;
+                
+                moves = moves + 1;
+                document.getElementById('move-counter').innerText = moves;
+                
+                renderBoard();
+                checkWin();
+            }
+        }
+
+        function checkWin() {
+            let winningState = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+            let hasWon = true;
+
+            for (let i = 0; i < boardState.length; i++) {
+                if (boardState[i] !== winningState[i]) {
+                    hasWon = false;
+                    break; 
+                }
+            }
+
+            if (hasWon === true) {
+                isSolved = true;
+                let baseScore = 1000;
+                let penalty = moves * 10;
+                let score = baseScore - penalty;
+                
+                if (score < 100) {
+                    score = 100;
+                }
+                
+                document.getElementById('message').innerHTML = "🎉 Tu as gagné ! 🎉<br>Mouvements: " + moves + "<br>Score: " + score;
+            }
+        }
+
+        window.onload = initGame;
+    </script>
+</body>
+</html>

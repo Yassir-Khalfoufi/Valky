@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="btn">tester</button>
+
+<script>
+let element = document.getElementById("btn");
+element.addEventListener("click", clickFct); //Evénement : clic de la souris
+element.addEventListener("mouseover", mouseoverFxn); //Evénement : passage de la souris sur un élément
+element.addEventListener("mouseout", mouseoutFxn); //Evénement : la souris quitte l’élément
+function clickFct() {
+alert("Vous avez cliqué :");
+}
+function mouseoverFxn() {
+element.style.background = "red"; 
+element.style.padding = "8px";
+}
+function mouseoutFxn() {
+element.style.background = "white";
+element.style.padding = "2px";
+}
+
+
+</script>
+
+</body>
+</html>

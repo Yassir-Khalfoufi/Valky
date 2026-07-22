@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet CAPTCHA - All In One</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .captcha-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .captcha-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        #captcha-text {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            user-select: none; /* كتمنع الـ Copier */
+            text-decoration: line-through; /* خط ف الوسط */
+        }
+
+        #refresh-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #refresh-btn:hover {
+            transform: rotate(180deg);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #1e3c72;
+        }
+
+        #submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #submit-btn:hover {
+            background-color: #2a5298;
+        }
+
+        #status-message {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .success {
+            color: #2e7d32;
+        }
+
+        .error {
+            color: #c62828;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="captcha-container">
+        <h2>Vérification CAPTCHA</h2>
+        
+        <div class="captcha-box">
+            <span id="captcha-text"></span>
+            <button id="refresh-btn" onclick="generateCaptcha()">🔄</button>
+        </div>
+
+        <input type="text" id="user-input" placeholder="Entrez le code ici">
+        <button id="submit-btn" onclick="checkCaptcha()">Vérifier</button>
+
+        <div id="status-message"></div>
+    </div>
+
+    <script>
+        let codeCaptcha = "";
+
+        function generateCaptcha() {
+            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            let result = "";
+            
+            for (let i = 0; i < 6; i++) {
+                let randomIndex = Math.floor(Math.random() * characters.length);
+                result += characters.charAt(randomIndex);
+            }
+            
+            codeCaptcha = result;
+            
+            document.getElementById("captcha-text").innerText = codeCaptcha;
+            document.getElementById("user-input").value = "";
+            document.getElementById("status-message").innerText = "";
+        }
+
+        function checkCaptcha() {
+            let userInput = document.getElementById("user-input").value;
+            let status = document.getElementById("status-message");
+
+            if (userInput === codeCaptcha) {
+                status.innerText = "Code correct ! Vous êtes un humain. ✅";
+                status.className = "success";
+            } else {
+                status.innerText = "Code incorrect. Réessayez ! ❌";
+                status.className = "error";
+                generateCaptcha(); 
+            }
+        }
+
+        window.onload = generateCaptcha;
+    </script>
+</body>
+</html>

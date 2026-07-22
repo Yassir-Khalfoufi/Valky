@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu Plus ou Moins</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #16213e;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            width: 420px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+            color: #e94560;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 2rem;
+        }
+
+        /* Level select */
+        #level-select h2 {
+            font-size: 1rem;
+            color: #aaa;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        .level-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: #0f3460;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 14px 18px;
+            color: #eee;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 12px;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .level-btn:hover { border-color: #e94560; background: #1a4a80; }
+
+        .badge {
+            font-size: 0.78rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .badge-easy  { background: #1a4a2a; color: #5dbb6a; }
+        .badge-med   { background: #4a3a0a; color: #f0b429; }
+        .badge-hard  { background: #4a1a1a; color: #e94560; }
+
+        /* Game area */
+        #game-area { display: none; }
+
+        .range-info {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 1.5rem;
+        }
+
+        #guess-input {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.8rem;
+            text-align: center;
+            background: #0f3460;
+            border: 2px solid #0f3460;
+            border-radius: 10px;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        #guess-input:focus { border-color: #e94560; }
+
+        #validate-btn {
+            width: 100%;
+            margin-top: 12px;
+            padding: 14px;
+            font-size: 1rem;
+            background: #e94560;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        #validate-btn:hover { background: #c73652; }
+
+        #feedback {
+            min-height: 48px;
+            margin: 1.2rem 0;
+            font-size: 1.05rem;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .hint-plus  { color: #e94560; }
+        .hint-moins { color: #53a8ff; }
+        .win        { color: #5dbb6a; font-size: 1.2rem; }
+        .err        { color: #f0b429; }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 1.2rem;
+        }
+
+        .stat-card {
+            background: #0f3460;
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #aaa;
+            margin-bottom: 4px;
+        }
+
+        .stat-val {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            width: 100%;
+            padding: 11px;
+            font-size: 0.9rem;
+            background: transparent;
+            color: #aaa;
+            border: 2px solid #0f3460;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .btn-secondary:hover { border-color: #aaa; color: #eee; }
+
+        #play-again { display: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Plus ou Moins</h1>
+    <p class="subtitle">Devine le nombre secret</p>
+
+    <!-- Level selection -->
+    <div id="level-select">
+        <h2>Choisis ton niveau :</h2>
+        <button class="level-btn" onclick="startGame(1, 50, 'easy')">
+            Niveau 1 — Facile
+            <span class="badge badge-easy">1 – 50</span>
+        </button>
+        <button class="level-btn" onclick="startGame(51, 100, 'med')">
+            Niveau 2 — Moyen
+            <span class="badge badge-med">51 – 100</span>
+        </button>
+        <button class="level-btn" onclick="startGame(101, 150, 'hard')">
+            Niveau 3 — Difficile
+            <span class="badge badge-hard">101 – 150</span>
+        </button>
+    </div>
+
+    <!-- Game area -->
+    <div id="game-area">
+        <p class="range-info" id="range-label"></p>
+
+        <input type="number" id="guess-input" placeholder="?" />
+        <button id="validate-btn" onclick="checkGuess()">Valider</button>
+
+        <div id="feedback"></div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <p class="stat-label">Essais</p>
+                <p class="stat-val" id="tries-count">0</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-label">Meilleur score</p>
+                <p class="stat-val" id="best-score">–</p>
+            </div>
+        </div>
+
+        <button id="play-again" class="btn-secondary" onclick="resetLevel()">🔄 Rejouer ce niveau</button>
+        <button class="btn-secondary" onclick="backToMenu()">← Choisir un autre niveau</button>
+    </div>
+</div>
+
+<script>
+    let secret, tries, minV, maxV, diffKey, gameOver;
+    const bestScores = {};
+
+    function randInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function startGame(min, max, key) {
+        minV = min;
+        maxV = max;
+        diffKey = key;
+        secret = randInt(min, max);
+        tries = 0;
+        gameOver = false;
+
+        document.getElementById('level-select').style.display = 'none';
+        document.getElementById('game-area').style.display = 'block';
+        document.getElementById('range-label').textContent = `Trouve un nombre entre ${min} et ${max}`;
+        document.getElementById('guess-input').value = '';
+        document.getElementById('guess-input').min = min;
+        document.getElementById('guess-input').max = max;
+        document.getElementById('feedback').textContent = '';
+        document.getElementById('feedback').className = '';
+        document.getElementById('tries-count').textContent = '0';
+        document.getElementById('best-score').textContent = bestScores[key] !== undefined ? bestScores[key] : '–';
+        document.getElementById('play-again').style.display = 'none';
+        document.getElementById('guess-input').focus();
+    }
+
+    function checkGuess() {
+        if (gameOver) return;
+
+        const input = document.getElementById('guess-input');
+        const fb = document.getElementById('feedback');
+        const val = parseInt(input.value, 10);
+
+        if (isNaN(val) || val < minV || val > maxV) {
+            fb.textContent = `⚠️ Entre un nombre entre ${minV} et ${maxV} !`;
+            fb.className = 'err';
+            return;
+        }
+
+        tries++;
+        document.getElementById('tries-count').textContent = tries;
+        input.value = '';
+
+        if (val < secret) {
+            fb.textContent = `C'est PLUS ! ${val} est trop petit. ⬆️`;
+            fb.className = 'hint-plus';
+        } else if (val > secret) {
+            fb.textContent = `C'est MOINS ! ${val} est trop grand. ⬇️`;
+            fb.className = 'hint-moins';
+        } else {
+            fb.textContent = `🎉 Bravo ! C'était ${secret} en ${tries} essai${tries > 1 ? 's' : ''} !`;
+            fb.className = 'win';
+            gameOver = true;
+            if (bestScores[diffKey] === undefined || tries < bestScores[diffKey]) {
+                bestScores[diffKey] = tries;
+            }
+            document.getElementById('best-score').textContent = bestScores[diffKey];
+            document.getElementById('play-again').style.display = 'block';
+        }
+
+        input.focus();
+    }
+
+    function resetLevel() {
+        startGame(minV, maxV, diffKey);
+    }
+
+    function backToMenu() {
+        document.getElementById('game-area').style.display = 'none';
+        document.getElementById('level-select').style.display = 'block';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') checkGuess();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+.logoo{
+height: 65px;
+width: 70px;
+margin: 7px;
+border-radius: 50%;
+padding: 6px;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 8%;
+  height: 50px;
+  box-shadow: 0 0 10px 0 rgb(96, 36, 36);
+}
+header .logo {
+  color:      #51351f;
+  font-size: 15px;
+  font-weight: bold;
+}
+header .logo span {
+  color: #000;
+}
+.menu {
+  
+  display: flex;
+}
+.menu li {
+  list-style: none;
+  margin: 0 15px;
+}
+.menu li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #000;
+  font-weight: bold;
+
+}
+.menu li a:hover {
+  text-decoration: underline;
+  color: rgb(96, 36, 36);
+  text-shadow: 0px 0px 5px rgb(96, 36, 36);
+}
+
+ .submenu {
+        display: none; 
+        position: absolute;
+   
+        box-shadow: 0px 2px 5px #51351f;
+        background-color: #8c5d38;
+        padding: 5px 0;
+        list-style: none;
+    }
+    
+    .submenu li {
+        padding: 5px 10px;
+        font-size: 10px;
+      
+    }
+     .submenu li a {
+        text-decoration: none;
+    }
+    
+    .dropdown:hover .submenu {
+        display: block;
+    }
+
+ .icon{
+        margin: 20px;
+        font-size: 25px;
+
+    }
+    .icon a{
+        text-decoration: none;
+        color: #51351f;
+    }
+    .icon :hover
+    {
+      font-size: 30px;
+    }
+
+
+  .shop{
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #51351f; 
+    margin: 30px; 
+    padding: 30px;
+  }
+  .shop img{
+    margin: 25px;
+  }
+  .shop{
+    font-weight: 600;
+  }
+#title{
+    font-size: 56px;
+    font-family: "Red Hat Display", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+  }
+  
+  .shop .shopinfo select{
+    display: block;
+    width: 500px;
+    height: 45px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+  .shop .shopinfo label{
+    font-size: 30px;
+  }
+  .shop .shopinfo h3{
+    font-size: 22px;
+  }
+  .shop .shopinfo h3 span{
+    color: #51351f;
+  }
+  form #card{
+    width: 500px;
+    height: 45px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+  .buttonshop {
+    height: 35px;
+    width: 150px;
+    letter-spacing: 1px;
+    text-align: center;
+    background-color: #51351f;
+    color: white ;
+}
+.buttonshop:hover{
+    color:#51351f;
+    background-color: white;
+    box-shadow: 0 10px 50px #51351f;
+}
+.delivery{
+   margin-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 150px;
+}
+
+ .abt{
+        margin-top: 20px;
+  padding:80px 20px;
+  box-shadow: 3px 30px 50px #51351f;
+}
+
+.about-content{
+  max-width:900px;
+  text-align:center;
+  
+}
+
+.abt h2{
+    text-align: center;
+  font-size:52px;
+  color:#51351f;
+  margin-bottom:50px;
+  letter-spacing:2px;
+}
+
+.abt p{
+  font-size:25px;
+  text-align: center;
+  color:#3b2a1a;
+}
+
+.contact{
+  padding:90px 20px;
+  
+}
+
+.contact h2{
+  text-align:center;
+  font-size:52px;
+  color:#51351f;
+  margin-bottom:60px;
+}
+
+.contact-container{
+  max-width:1000px;
+  margin:auto;
+  display:flex;
+  gap:50px;
+}
+
+.contact-info{
+  width:40%;
+  font-size:16px;
+  line-height:2;
+  color:#3b2a1a;
+}
+
+.contact-info p{
+  margin-bottom:15px;
+}
+
+.contact-form{
+  width:60%;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  padding:16px;
+  border:1px solid black;
+  border-radius:6px;
+  font-size:14px;
+  background:#fdf9f3;
+  font-family:"Georgia", serif;
+}
+
+.contact-form textarea{
+  height:150px;
+  
+}
+
+.contact-form button{
+  width:200px;
+  padding:15px;
+  background:#51351f;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  font-weight:bold;
+  letter-spacing:1px;
+  
+  transition:0.3s ease;
+}
+
+.contact-form button:hover{
+  background:#fff;
+  color:#51351f;
+  box-shadow:0 15px 40px #51351f;
+}
+.mini-footer{
+  background:#51351f; 
+  color:#f3efe9;    
+  text-align:center;
+  padding:15px 0;
+  font-family:"Georgia", serif;
+  font-size:15px;
+  letter-spacing:1px;
+}
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 10px 5%;
+    height: auto;
+  }
+
+  .menu {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .shop {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .shop img {
+    margin: 15px 0;
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .shop .shopinfo select,
+  form #card {
+    width: 100%;
+  }
+
+  .delivery {
+    flex-direction: column;
+    gap: 20px;
+    font-size: 20px;
+    margin-bottom: 50px;
+  }
+
+  .abt {
+    padding: 50px 15px;
+  }
+
+  .abt h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .abt p {
+    font-size: 20px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100%;
+  }
+
+  .contact h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  header .logo {
+    font-size: 16px;
+  }
+
+  .menu li a {
+    font-size: 16px;
+  }
+
+  .shop {
+    
+    margin-top: 500px;
+  }
+
+  .shop .shopinfo label {
+    font-size: 24px;
+  }
+
+  .shop .shopinfo h3 {
+    font-size: 20px;
+  }
+
+  #title {
+    font-size: 40px;
+  }
+
+  .delivery {
+    font-size: 18px;
+  }
+
+  .abt h2 {
+    font-size: 32px;
+  }
+
+  .abt p {
+    font-size: 18px;
+  }
+
+  .contact h2 {
+    font-size: 32px;
+  }
+
+  .buttonshop {
+    width: 120px;
+    height: 35px;
+    font-size: 14px;
+  }
+}
+

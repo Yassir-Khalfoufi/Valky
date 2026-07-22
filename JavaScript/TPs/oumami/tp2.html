@@ -1,0 +1,12 @@
+<input type="number" id="num2a" value="-5">
+<input type="number" id="num2b" value="2">
+<button onclick="calcSVA()">SVA</button>
+<p id="res2"></p>
+
+<script>
+function calcSVA() {
+  let a = parseFloat(document.getElementById("num2a").value);
+  let b = parseFloat(document.getElementById("num2b").value);
+  document.getElementById("res2").innerText = "Résultat: " + (Math.abs(a) + Math.abs(b));
+}
+</script>

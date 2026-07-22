@@ -1,0 +1,375 @@
+.logoo{
+height: 65px;
+width: 70px;
+margin: 7px;
+border-radius: 50%;
+padding: 6px;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 8%;
+  height: 50px;
+  box-shadow: 0 0 10px 0 rgb(96, 36, 36);
+}
+header .logo {
+  color:      #51351f;
+  font-size: 15px;
+  font-weight: bold;
+}
+header .logo span {
+  color: #000;
+}
+.menu {
+  
+  display: flex;
+}
+.menu li {
+  list-style: none;
+  margin: 0 15px;
+}
+.menu li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #000;
+  font-weight: bold;
+
+}
+.menu li a:hover {
+  text-decoration: underline;
+  color: rgb(96, 36, 36);
+  text-shadow: 0px 0px 5px rgb(96, 36, 36);
+}
+
+ .submenu {
+        display: none; 
+        position: absolute;
+        box-shadow: 0px 2px 5px #51351f;
+        background-color: #8c5d38;
+        padding: 5px 0;
+        list-style: none;
+    }
+    
+    .submenu li {
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+     .submenu li a {
+        text-decoration: none;
+    }
+    
+    .dropdown:hover .submenu {
+        display: block; 
+    }
+
+ .icon{
+        margin: 20px;
+        font-size: 25px;
+
+    }
+    .icon a{
+        text-decoration: none;
+        color: #51351f;
+    }
+    .icon :hover
+    {
+      font-size: 30px;
+    }
+
+.about h1{
+    font-size: 50px;
+    margin-left: 30px;
+}
+.about p{
+   margin-bottom: 20px;
+  color: #999;
+  font-size: 20px;
+    margin-left: 30px;
+}
+.about h1 span{
+    color: #51351f;
+}
+.about ul{
+    display: flex;
+}
+.about ul li{
+    margin-top: 50px;
+    margin-left: 80px;
+    margin-right: 80px;
+    list-style: none;
+    font-size: 30px;
+    color:#51351f;
+    
+}
+ .about ul h5{
+    margin-left: 80px;
+    margin-right: 80px;
+    font-size: 20px;
+  
+} 
+.about{
+    display: flex;
+    justify-content: space-around;    
+    width: 100%;
+}
+.about video{
+    
+     margin: 20px;
+     margin-top: 60px;
+
+} 
+.first{
+    margin-top: 60px;
+} 
+.delivery{
+   margin-top: 40px;
+    display: flex;
+   justify-content: space-between;
+    font-size: 30px;
+    text-align: center;
+    
+}
+#icon
+{
+  color: #51351f;
+  font-weight: bold;
+}
+h2{
+  text-align:center;
+  margin:60px 0;
+  text-shadow: 0 10px 50px #51351f;
+  font-family: 'Times New Roman', Times, serif;
+  font-size:50px;
+}
+
+.products{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px 80px;
+  display:flex;
+  flex-direction:column;
+  gap:60px;
+}
+
+.product-row{
+  display:flex;
+  gap:30px;
+  align-items:center;
+}
+
+
+.video-card{
+
+  height:600px;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:3px 20px 50px #51351f;
+}
+
+.video-card video{
+  
+  height: 600px;
+  
+}
+
+
+
+.text-card h3{
+  font-size:50px;
+  color:#51351f;
+  margin-bottom:18px;
+}
+
+.text-card p{
+  font-size:15px;
+  line-height:1.7;
+  color:black;
+  margin-bottom:30px;
+}
+
+
+.text-card button{
+  width:180px;
+  padding:14px;
+  background:#51351f;
+  border:none;
+  border-radius:6px;
+  color:#fff;
+  font-weight:bold;
+  
+}
+
+.text-card button:hover{
+  box-shadow:0 15px 50px  #51351f;
+  color: #51351f;
+  background:white;
+}
+
+.reverse{
+  flex-direction:row-reverse;
+}
+
+
+
+.abt{
+  padding:80px 20px;
+  box-shadow: 3px 30px 50px #51351f;
+}
+
+.about-content{
+  max-width:900px;
+  text-align:center;
+  
+}
+
+.abt h2{
+  font-size:52px;
+  color:#51351f;
+  margin-bottom:50px;
+  letter-spacing:2px;
+}
+
+.abt p{
+  font-size:25px;
+  text-align: center;
+  color:#3b2a1a;
+}
+
+.contact{
+  padding:90px 20px;
+  
+}
+
+.contact h2{
+  text-align:center;
+  font-size:52px;
+  color:#51351f;
+  margin-bottom:60px;
+}
+
+.contact-container{
+  max-width:1000px;
+  margin:auto;
+  display:flex;
+  gap:50px;
+}
+
+.contact-info{
+  width:40%;
+  font-size:16px;
+  line-height:2;
+  color:#3b2a1a;
+}
+
+.contact-info p{
+  margin-bottom:15px;
+}
+
+.contact-form{
+  width:60%;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  padding:16px;
+  border:1px solid black;
+  border-radius:6px;
+  font-size:14px;
+  background:#fdf9f3;
+  font-family:"Georgia", serif;
+}
+
+.contact-form textarea{
+  height:150px;
+  
+}
+
+.contact-form button{
+  width:200px;
+  padding:15px;
+  background:#51351f;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  font-weight:bold;
+  letter-spacing:1px;
+  
+  transition:0.3s ease;
+}
+
+.contact-form button:hover{
+  background:#fff;
+  color:#51351f;
+  box-shadow:0 15px 40px #51351f;
+}
+
+.mini-footer{
+  background:#51351f; 
+  color:#f3efe9;    
+  text-align:center;
+  padding:15px 0;
+  font-family:"Georgia", serif;
+  font-size:15px;
+  letter-spacing:1px;
+}
+@media (max-width: 900px) {
+  .about {
+    margin-top: 500px;
+    flex-direction: column;
+  }
+  .product-row {
+    flex-direction: column;
+  }
+  .video-card, .text-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    flex-direction: column;
+    padding: 10px 5%;
+    height: auto;
+  }
+  .menu {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  .menu li {
+    margin: 10px 0;
+  }
+  .about ul {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  header .logo {
+    font-size: 16px;
+  }
+  .menu li a {
+    font-size: 16px;
+  }
+  .text-card h3 {
+    font-size: 28px;
+  }
+  .about h1 {
+    font-size: 30px;
+  }
+  .about p {
+    font-size: 16px;
+  }
+  .contact h2 {
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,144 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="containre" style="justify-content: center; align-items: center; text-align: center; width: 1000px;">
+      <form action="" class="form-control mt-5">
+        <p class="h2 success">Select the level that you want to start with :</p>
+        <select name="" id="select_one" class="form-select">
+            <option value="easy" id="ez">Easy</option>
+            <option value="easy" id="Med">Medium</option>
+            <option value="easy" id="xd">Hard</option>
+        </select> <br>
+        <button id="starting" class="btn btn-success mt-">Confirm</button><br>
+     game 
+        <h3 style="color: red;">You can not start before you select a level first !! </h3>
+        <input type="number" class="form-control">
+        <p class="h4 mt-2"> <span style="color: green;">Number Of Try </span> :  <span class="given">No One yet </span></p> 
+        <p class="h4 mt -2"> <span style="color: green;">Performance by percentage </span> :  <span class="haven">0%</span></p>
+    </form>
+    </div>
+</body>
+<script src="jeux.js"></script>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu Plus ou Moins</title>
+    <style>
+        body { font-family: Arial
+            , sans-serif;
+             text-align: center;
+              margin-top: 50px;
+             background-image: url();
+             }
+        button { padding: 10px 20px;
+             margin: 10px;
+              font-size: 16px;
+               cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Jeu : Plus ou Moins</h1>
+    <html>Boujouer dans le jeux de plus ou moins c'est un jeux realiser par Yassir Khalfoufi
+    oriente par M. Oumami .
+    </html>
+    <p>Choisissez votre niveau de difficulté :</p>
+
+    <button onclick="PoM_partie(1, 63)">Niveau Zéro (1 à 63)</button>
+    <button onclick="PoM_partie(1, 100)">Niveau Normal (1 à 100)</button>
+    <button onclick="PoM_partie(0, 250)">Niveau Geek (0 à 250)</button>
+
+    <script src="jeux.js">
+        let counter = 0 ;
+document.getElementById("starting").onclick = function (){
+    let level = document.getElementById('select_one').value ;
+    if (level = "ez"){
+      document.write("select a Number between 0 and 63")
+    }
+function nb_aleatoire(min, max) {
+
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+function PoM_manche(min, max) {
+    let nombreSecret = nb_aleatoire(min, max);
+    let tentatives = 0;
+    let trouve = false;
+
+   
+    while (!trouve) {
+        let saisie = prompt(`Devinez le nombre (entre ${min} et ${max}) :`);
+
+      
+        if (saisie === null) {
+            alert("Manche annulée.");
+            return -1; 
+        }
+
+        let proposition = parseInt(saisie, 10);
+        tentatives++; 
+
+
+        if (isNaN(proposition)) {
+            alert("Veuillez entrer un nombre valide !");
+        } else if (proposition < nombreSecret) {
+            alert("C'est plus !");
+        } else if (proposition > nombreSecret) {
+            alert("C'est moins !");
+        } else {
+        
+            alert(`Bravo ! Vous avez trouvé le nombre en ${tentatives} coup(s).`);
+            trouve = true;
+        }
+    }
+
+    return tentatives;
+}
+
+
+function PoM_partie(min, max) {
+    let rejouer = true;
+    let meilleurScore = Infinity;
+
+
+    while (rejouer) {
+        let scoreManche = PoM_manche(min, max);
+
+        if (scoreManche !== -1) {
+         
+            if (scoreManche < meilleurScore) {
+                meilleurScore = scoreManche;
+                alert(`Nouveau meilleur score : ${meilleurScore} coup(s) !`);
+            } else {
+                alert(`Votre score : ${scoreManche} coup(s).\nMeilleur score actuel : ${meilleurScore} coup(s).`);
+            }
+        }
+
+     
+        rejouer = confirm("Voulez-vous rejouer à ce niveau ?");
+    }
+
+    alert("Retour au menu principal.");
+}
+
+    </script>
+</body>
+</html>
